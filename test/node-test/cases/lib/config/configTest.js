@@ -11,6 +11,12 @@ describe('Module config Test', async function() {
         done(defaultVal == getValue ? null : new Error("get with default value failed"));
     });
 
+    
+    it('is get all config values in Module config', async function(done) {
+        const d = config.get();
+        done(typeof d === "object" ? null : new Error("get all config values failed"));
+    });
+
 
     it('is set one value in Module config', async function(done) {
         const configKey = "key_test_11111112222222";

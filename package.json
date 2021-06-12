@@ -16,7 +16,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "node-test": "mocha --config .mocharc.cjs"
+    "node-test": "mocha --config .mocharc.cjs",
+    "node-test-with-coverage": "c8 --reporter \"html\" --reports-dir \"./runtime/coverage-report/\" --temp-directory \"./temp/c8-test/\" mocha --config .mocharc.cjs"
   },
   "devDependencies": {
     "@babel/core": "^7.14.5",
