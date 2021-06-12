@@ -1,16 +1,14 @@
 describe('loadScriptPromise.config Test', async function() {
 
-    const config = loadScriptPromise.config;
-
     it('is get with default value in Module config', async function(done) {
         const defaultVal = Math.random();
-        const getValue = config.get("not_exists_key__________", defaultVal);
+        const getValue = loadScriptPromise.config.get("not_exists_key__________", defaultVal);
         done(defaultVal == getValue ? null : new Error("get with default value failed"));
     });
 
     
     it('is get all config values in Module config', async function(done) {
-        const d = config.get();
+        const d = loadScriptPromise.config.get();
         done(typeof d === "object" ? null : new Error("get all config values failed"));
     });
 
@@ -18,8 +16,8 @@ describe('loadScriptPromise.config Test', async function() {
     it('is set one value in Module config', async function(done) {
         const configKey = "key_test_11111112222222";
         const value = Math.random();
-        config.set(configKey, value);
-        const getValue = config.get(configKey);
+        loadScriptPromise.config.set(configKey, value);
+        const getValue = loadScriptPromise.config.get(configKey);
         done(value == getValue ? null : new Error("set one value failed"));
     });
 
@@ -30,9 +28,9 @@ describe('loadScriptPromise.config Test', async function() {
         const obj = {};
         obj[configKey] = value;
 
-        config.set(obj);
+        loadScriptPromise.config.set(obj);
 
-        const getValue = config.get(configKey);
+        const getValue = loadScriptPromise.config.get(configKey);
         done(value == getValue ? null : new Error("set object values failed"));
     });
 

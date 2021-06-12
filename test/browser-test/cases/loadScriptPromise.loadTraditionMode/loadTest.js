@@ -1,6 +1,5 @@
 describe('loadScriptPromise.loadTraditionMode test', async function() {
 
-    const load = loadScriptPromise.loadTraditionMode;
     const src = "./static/testlibDirectTraditionLoad@0.0.1/testlibDirectTraditionLoad.js";
     const windowKey = "testlibDirectTraditionLoad";
 
@@ -8,7 +7,7 @@ describe('loadScriptPromise.loadTraditionMode test', async function() {
 
         const defaultVal = Math.random() + "_" + Date.now();
 
-        load(src, {}, function(err, script){
+        loadScriptPromise.loadTraditionMode(src, {}, function(err, script){
 
             if(err){
                 done(err);
@@ -33,7 +32,7 @@ describe('loadScriptPromise.loadTraditionMode test', async function() {
             //simulate load many times
             for(let i = 1; i <= maxLooped; i++){
                 
-                load(src, function(err, script){
+                loadScriptPromise.loadTraditionMode(src, function(err, script){
 
                     looped++;
 

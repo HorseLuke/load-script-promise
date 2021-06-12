@@ -1,13 +1,14 @@
 describe('loadScriptPromise.load test', async function() {
 
-    const load = loadScriptPromise.load;
-    const src = "./static/testlibDirectPromiseLoad@0.0.1/testlibDirectPromiseLoad.js";
-    const windowKey = "testlibDirectPromiseLoad";
 
     it('is load success', async function() {
+
+        const src = "./static/testlibDirectPromiseLoad@0.0.1/testlibDirectPromiseLoad.js";
+        const windowKey = "testlibDirectPromiseLoad";
+    
         const defaultVal = Math.random() + "_" + Date.now();
 
-        await load(src);
+        await loadScriptPromise.load(src);
 
         if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
             throw new Error("load failed");
@@ -22,7 +23,7 @@ describe('loadScriptPromise.load test', async function() {
         var loadSrcMultiTimes = [];
 
         for(let i = 0; i < 100; i++){
-            loadSrcMultiTimes.push(load(src));
+            loadSrcMultiTimes.push(loadScriptPromise.load(src));
         }
 
         await Promise.all(loadSrcMultiTimes);
