@@ -1,36 +1,41 @@
-describe('loadScriptPromise.load test', async function() {
+describe('loadScriptPromise.load test', function() {
 
-
-    it('is load success', async function() {
+    it('is load success', function() {
 
         const src = "./static/testlibDirectPromiseLoad@0.0.1/testlibDirectPromiseLoad.js";
         const windowKey = "testlibDirectPromiseLoad";
     
         const defaultVal = Math.random() + "_" + Date.now();
 
-        await loadScriptPromise.load(src);
+        return loadScriptPromise.load(src).then(() => {
 
-        if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
-            throw new Error("load failed");
-        }
-        
-        window[windowKey].setVal(defaultVal);
+            if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
+                throw new Error("load failed");
+            }
+            
+            window[windowKey].setVal(defaultVal);
+    
+            if(window[windowKey].getVal() !== defaultVal){
+                throw new Error("load failed, can not set value");
+            }
 
-        if(window[windowKey].getVal() !== defaultVal){
-            throw new Error("load failed, can not set value");
-        }
+        }).then(() => {
 
-        var loadSrcMultiTimes = [];
+            var loadSrcMultiTimes = [];
 
-        for(let i = 0; i < 100; i++){
-            loadSrcMultiTimes.push(loadScriptPromise.load(src));
-        }
+            for(let i = 0; i < 100; i++){
+                loadSrcMultiTimes.push(loadScriptPromise.load(src));
+            }
+    
+            return Promise.all(loadSrcMultiTimes);
+    
+        }).then(() => {
+            
+            if(window[windowKey].getVal() !== defaultVal){
+                throw new Error("load failed, is not restricted to load only once");
+            }
 
-        await Promise.all(loadSrcMultiTimes);
-
-        if(window[windowKey].getVal() !== defaultVal){
-            throw new Error("load failed, is not restricted to load only once");
-        }
+        });
 
     });
 
