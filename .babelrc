@@ -1,0 +1,18 @@
+{
+    "presets": [
+      ["@babel/preset-env", {
+        "targets": {
+            "safari": 10, //目标运行平台为safari10,
+            "chrome": 49,
+          },
+          "modules": false,
+          "useBuiltIns": false,
+          "debug": true
+      }]
+    ],
+    "plugins": [
+      ["@babel/plugin-transform-runtime", {
+        "regenerator": true
+      }]
+    ]  
+}
