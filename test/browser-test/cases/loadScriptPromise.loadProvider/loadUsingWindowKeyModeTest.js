@@ -1,9 +1,9 @@
 describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using windowKey mode test', async function() {
 
-    const providerName= "testlibProviderLoadVersion1";
+    const providerId= "testlibProviderLoadVersion1";
     const windowKey = "testlibProviderLoad";
 
-    loadScriptPromise.setProvider(providerName, {
+    loadScriptPromise.setProvider(providerId, {
         src: "./static/testlibProviderLoad@0.0.1/testlibProviderLoad.js",
         windowKey: windowKey,
     });
@@ -11,7 +11,7 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
     it('is load success', async function() {
         const defaultVal = Math.random() + "_" + Date.now();
         
-        const resource = await loadScriptPromise.loadProvider(providerName);
+        const resource = await loadScriptPromise.loadProvider(providerId);
 
         if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
             throw new Error("load failed");
@@ -30,7 +30,7 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
         var loadSrcMultiTimes = [];
 
         for(let i = 0; i < 100; i++){
-            loadSrcMultiTimes.push(loadScriptPromise.loadProvider(providerName));
+            loadSrcMultiTimes.push(loadScriptPromise.loadProvider(providerId));
         }
 
         await Promise.all(loadSrcMultiTimes);
