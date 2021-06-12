@@ -1,5 +1,7 @@
 import { terser } from 'rollup-plugin-terser';
 import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import commonjs from 'rollup-plugin-commonjs';
 
 const env = process.env.NODE_ENV
 
@@ -17,7 +19,9 @@ const config = {
             exclude: 'node_modules/**',
             "runtimeHelpers": true,
         }),
-        terser()
+        //terser(),
+        resolve(),
+        commonjs(),
     ]
 };
 
