@@ -1,4 +1,4 @@
-describe('loadScriptPromise.config Test', async function() {
+describe('loadScriptPromise.config Test', function() {
 
     it('is get with default value in Module config', function(done) {
         const defaultVal = Math.random();
