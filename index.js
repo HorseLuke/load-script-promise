@@ -1,16 +1,18 @@
 import loadScriptPromiseLoad from "./lib/load-script-promise/load";
+import loadScriptTraditionMode from "./lib/load-script/load";
 import {dataScriptMark, findScriptDomsBySrc} from "./lib/load-script/helper";
-import loadRegResource from "./lib/load-script-reg-resource/loadRegResource";
-import * as regResourceListStore from "./lib/load-script-reg-resource/regResourceListStore";
+import loadProvider from "./lib/load-script-provider/loadProvider";
+import * as providerListStore from "./lib/load-script-provider/providerListStore";
 import config from "./lib/config/config";
 
 const loadScript = {};
 
 loadScript.load = loadScriptPromiseLoad;
+loadScript.loadTraditionMode = loadScriptTraditionMode;
 
-loadScript.regResource = regResourceListStore.set;
-loadScript.loadRegResource = loadRegResource;
-loadScript.regResourceListStore = regResourceListStore;
+loadScript.regProvider = providerListStore.set;
+loadScript.loadProvider = loadProvider;
+loadScript.providerListStore = providerListStore;
 
 loadScript.dataScriptMark = dataScriptMark;
 loadScript.findScriptDomsBySrc = findScriptDomsBySrc;
