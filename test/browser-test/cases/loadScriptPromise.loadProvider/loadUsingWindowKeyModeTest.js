@@ -3,14 +3,18 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
     const providerId= "testlibProviderLoadVersion1";
     const windowKey = "testlibProviderLoad";
 
-    loadScriptPromise.setProvider(providerId, {
-        src: "./static/testlibProviderLoad@0.0.1/testlibProviderLoad.js",
-        windowKey: windowKey,
+    before(() => {
+
     });
 
     it('is load success', async function() {
-        const defaultVal = Math.random() + "_" + Date.now();
         
+        const defaultVal = Math.random() + "_" + Date.now();
+
+        loadScriptPromise.setProvider(providerId, {
+            src: "./static/testlibProviderLoad@0.0.1/testlibProviderLoad.js",
+            windowKey: windowKey,
+        });
         const resource = await loadScriptPromise.loadProvider(providerId);
 
         if(!Object.prototype.hasOwnProperty.call(window, windowKey)){

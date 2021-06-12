@@ -5,10 +5,14 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
 
     const urlPrefix = "./static/testlibProviderLoadDependencyDetectProvider@0.0.1";
 
-    loadScriptPromise.setProvider(providerId, {
-        src: urlPrefix + "/testlibProviderLoadDependencyDetectProvider.js",
-        windowKey: windowKey,
+
+    before(()=> {
+        loadScriptPromise.setProvider(providerId, {
+            src: urlPrefix + "/testlibProviderLoadDependencyDetectProvider.js",
+            windowKey: windowKey,
+        });
     });
+
 
     it('is load plugin add with detectProvider using loadProvider(providerId) and return Promise success', async function() {
 
