@@ -1,6 +1,4 @@
-
-
-describe('Module config Test', async function() {
+describe('loadScriptPromise.config Test', async function() {
 
     const config = loadScriptPromise.config;
 
