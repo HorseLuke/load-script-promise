@@ -10,7 +10,7 @@ const loadScript = {};
 loadScript.load = loadScriptPromiseLoad;
 loadScript.loadTraditionMode = loadScriptTraditionMode;
 
-loadScript.regProvider = providerListStore.set;
+loadScript.setProvider = providerListStore.set;
 loadScript.loadProvider = loadProvider;
 loadScript.providerListStore = providerListStore;
 
