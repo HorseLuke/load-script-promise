@@ -1,37 +1,36 @@
 import { terser } from 'rollup-plugin-terser';
-import babel from 'rollup-plugin-babel';
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import babel from '@rollup/plugin-babel';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
 
 const env = process.env.NODE_ENV;
 
-const output = {
+const output = [];
+
+output.push({
     file: './dist/loadScriptPromise.js',
-    format: 'umd',
+    format: 'iife',
     name: 'loadScriptPromise',
     sourcemap: false
-};
+});
 
-if(env == "production"){
-    output.file = "./dist/loadScriptPromise.min.js";
-    output.sourcemap = true;
-}
+output.push({
+    file: './dist/loadScriptPromise.min.js',
+    format: 'iife',
+    name: 'loadScriptPromise',
+    sourcemap: true,
+    plugins: [terser()]
+});
+
 
 const plugins = [
+    commonjs(),
+    resolve(),
     babel({
         exclude: 'node_modules/**',
-        "runtimeHelpers": true,
+        babelHelpers: 'runtime'
     })
 ];
-
-if(env == "production"){
-    plugins.push(terser());
-}
-
-plugins.push(resolve());
-plugins.push(commonjs());
-
-
 
 
 const config = {
