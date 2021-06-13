@@ -14,7 +14,7 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
     });
 
 
-    it('is load plugin add with detectProvider using loadProvider(providerId) and return Promise success', async function() {
+    it('is load plugin add with detectProvider using loader.loadProvider(providerId) [loader as argument passed to detectProvider] and return Promise success', async function() {
 
         //plugin add setProvider
         loadScriptPromise.setProvider(providerId + ".plugin.add", {
