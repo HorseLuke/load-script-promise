@@ -15,7 +15,7 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
 
         loadScriptPromise.setProvider(providerUIId, {
             src: "./static/testlibProviderLoadCustomDetectProvider@0.0.1/testlibProviderLoadCustomDetectProviderUI.js",
-            detectProvider: function(id, option, mode, script){
+            detectProvider: function(loader){
                 //This does not load main providerId. You have to do it manually.
                 if(window[windowKey][providerUIKey]){
                     //return window[windowKey][providerUIKey];

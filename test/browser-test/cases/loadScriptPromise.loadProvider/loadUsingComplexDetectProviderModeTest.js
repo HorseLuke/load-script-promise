@@ -19,9 +19,9 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
         //plugin add setProvider
         loadScriptPromise.setProvider(providerId + ".plugin.add", {
             src:  urlPrefix + "/plugin.add.js",
-            detectProvider: function(id, option, mode, script){
+            detectProvider: function(loader){
                 //return promise mode, and promise load main testlibProviderLoadDependencyDetectProvider first.
-                return loadScriptPromise.loadProvider(providerId).then(() => {
+                return loader.loadProvider(providerId).then(() => {
                     if(window[windowKey].hasPlugin("add")){
                         return window[windowKey].getPlugin("add");    //return plugin function
                     }
@@ -47,7 +47,7 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
         //plugin version setProvider
         loadScriptPromise.setProvider(providerId + ".plugin.sub", {
             src:  urlPrefix + "/plugin.sub.js",
-            detectProvider: function(id, option, mode, script){
+            detectProvider: function(loader){
 
                 //This does not load main testlibProviderLoadDependencyDetectProvider. You have to do it manually.
                 if(!window[windowKey]){
