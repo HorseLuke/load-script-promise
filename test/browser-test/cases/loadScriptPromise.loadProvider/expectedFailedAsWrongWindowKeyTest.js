@@ -16,11 +16,14 @@ describe('loadScriptPromise.loadProvider expected failed as Wrong windowKey in l
         }catch(e){
             if(e.message.indexOf("'windowKey' is used for search specific provider in window object, but found nothing.") == 0){
                 //This is expected result
-                console.log(e);
+                console.error(e);
                 return ;
             }
             throw e;
         }
+
+        throw new Error("Does not failed as expected");
+
     });
 
 });
