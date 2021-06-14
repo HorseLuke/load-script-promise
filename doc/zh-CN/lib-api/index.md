@@ -29,4 +29,4 @@ import loadProvider from "<load-script-promise>/lib/load-script-provider/loadPro
 
 ```
 
-请把 `<load-script-promise>`改成`load-script-promise`（如果该库已经发布到npm，并且以npm形式安装）或者目录路径（如果你手动把整个`lib`目录都复制到你的项目里面）。
+请把 `<load-script-promise>`改成`@horseluke/load-script-promise`（如果该库已经发布到npm，并且以npm形式安装）或者目录路径（如果你手动把整个`lib`目录都复制到你的项目里面）。

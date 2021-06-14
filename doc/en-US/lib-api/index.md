@@ -29,4 +29,4 @@ import loadProvider from "<load-script-promise>/lib/load-script-provider/loadPro
 
 ```
 
-change `<load-script-promise>` to `load-script-promise` (if this repo has been published to npm and installed via npm) or folder path (if you manually copy the whole `lib` folder to your project)
+change `<load-script-promise>` to `@horseluke/load-script-promise` (if this repo has been published to npm and installed via npm) or folder path (if you manually copy the whole `lib` folder to your project)
