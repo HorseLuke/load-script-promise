@@ -9,7 +9,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git@github.com:HorseLuke/load-script-promise.git"
   },
   "type": "module",
   "module": "./index.js",
