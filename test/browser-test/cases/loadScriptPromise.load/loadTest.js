@@ -7,7 +7,9 @@ describe('loadScriptPromise.load test', function() {
     
         const defaultVal = Math.random() + "_" + Date.now();
 
-        return loadScriptPromise.load(src).then(function (){
+        return loadScriptPromise.load(src).then(function (script){
+
+            console.log(script);
 
             if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
                 throw new Error("load failed");
