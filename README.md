@@ -12,6 +12,8 @@ This repo is forked and modified from [https://github.com/eldargab/load-script](
 
 The structure and development mode of this repo is compatible with ES Module.
 
+Npm package name is `@horseluke/load-script-promise`.
+
 ## Installation
 
 In Browser standalone mode (directly require in html file), just include bundled file from `dist` folder, and then use `loadScriptPromise` Object.

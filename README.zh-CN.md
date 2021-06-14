@@ -12,9 +12,10 @@
 
 本库结构和开发模式兼容ES模块方式。
 
+Npm包名称为`@horseluke/load-script-promise`。
+
 ## 安装
 
-### 
 
 在浏览器独立使用模式（在html文件中直接引入）中，引入`dist`目录下的打包文件，然后使用`loadScriptPromise`Object对象。
 
