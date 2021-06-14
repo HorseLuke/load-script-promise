@@ -7,7 +7,7 @@ describe('loadScriptPromise.load test', function() {
     
         const defaultVal = Math.random() + "_" + Date.now();
 
-        return loadScriptPromise.load(src).then(() => {
+        return loadScriptPromise.load(src).then(function (){
 
             if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
                 throw new Error("load failed");
@@ -19,17 +19,17 @@ describe('loadScriptPromise.load test', function() {
                 throw new Error("load failed, can not set value");
             }
 
-        }).then(() => {
+        }).then(function (){
 
             var loadSrcMultiTimes = [];
 
-            for(let i = 0; i < 100; i++){
+            for(var i = 0; i < 100; i++){
                 loadSrcMultiTimes.push(loadScriptPromise.load(src));
             }
     
             return Promise.all(loadSrcMultiTimes);
     
-        }).then(() => {
+        }).then(function (){
             
             if(window[windowKey].getVal() !== defaultVal){
                 throw new Error("load failed, is not restricted to load only once");

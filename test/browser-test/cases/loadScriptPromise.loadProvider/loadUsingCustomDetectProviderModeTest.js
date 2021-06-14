@@ -1,4 +1,4 @@
-describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using custom detectProvider mode test', async function() {
+describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using custom detectProvider mode test', function() {
 
     const providerId= "testlibProviderLoadCustomDetectProvider";
     const windowKey = "testlibProviderLoadCustomDetectProvider";
@@ -6,7 +6,7 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
     const providerUIId= "testlibProviderLoadCustomDetectProviderUI";
     const providerUIKey = "UI";
 
-    before(() => {
+    before(function (){
 
         loadScriptPromise.setProvider(providerId, {
             src: "./static/testlibProviderLoadCustomDetectProvider@0.0.1/testlibProviderLoadCustomDetectProvider.js",
@@ -27,44 +27,49 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
 
     });
 
-    it('is load providerId success', async function() {
+    it('is load providerUIId success after load providerId success', function() {
 
         const defaultVal = Math.random() + "_" + Date.now();
         
-        const resource = await loadScriptPromise.loadProvider(providerId);
+        //detectProvider does not load main providerId. You have to do it manually first.
+        const resourcePromise = loadScriptPromise.loadProvider(providerId);
 
-        if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
-            throw new Error("load failed");
-        }
+        return resourcePromise.then(function(resource){
 
-        if(resource !== window[windowKey]){
-            throw new Error("load failed, return is not the same as windowKey");
-        }
+            //test load providerId is OK
 
-        window[windowKey].setVal(defaultVal);
+            if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
+                throw new Error("load failed");
+            }
+    
+            if(resource !== window[windowKey]){
+                throw new Error("load failed, return is not the same as windowKey");
+            }
 
-        if(window[windowKey].getVal() !== defaultVal){
-            throw new Error("load failed, can not set value");
-        }
+            window[windowKey].setVal(defaultVal);
 
-    });
+            if(window[windowKey].getVal() !== defaultVal){
+                throw new Error("load failed, can not set value");
+            }
 
-    it('is load providerUIId success', async function() {
 
-        const defaultVal = Math.random() + "_" + Date.now();
-        
-        //detectProvider does not load main providerId. You have to do it manually.
-        const resource = await loadScriptPromise.loadProvider(providerId);
-        await loadScriptPromise.loadProvider(providerUIId);
+            //after load providerId, load providerUIId
+            return loadScriptPromise.loadProvider(providerUIId);
 
-        if(!Object.prototype.hasOwnProperty.call(window[windowKey], providerUIKey)){
-            throw new Error("load failed using detectProvider");
-        }
-        
-        window[windowKey][providerUIKey].setUIName(defaultVal);
-        if(window[windowKey][providerUIKey].getUIName() !== defaultVal){
-            throw new Error("load failed using detectProvider, can not set value");
-        }
+
+
+        }).then(function(){
+
+            if(!Object.prototype.hasOwnProperty.call(window[windowKey], providerUIKey)){
+                throw new Error("load failed using detectProvider");
+            }
+            
+            window[windowKey][providerUIKey].setUIName(defaultVal);
+            if(window[windowKey][providerUIKey].getUIName() !== defaultVal){
+                throw new Error("load failed using detectProvider, can not set value");
+            }
+
+        });
 
     });
 

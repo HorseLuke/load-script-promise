@@ -1,13 +1,13 @@
-describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using windowKey mode test', async function() {
+describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using windowKey mode by promise mode test', function() {
 
     const providerId= "testlibProviderLoadVersion1";
     const windowKey = "testlibProviderLoad";
 
-    before(() => {
+    before(function (){
 
     });
 
-    it('is load success', async function() {
+    it('is load success', function() {
         
         const defaultVal = Math.random() + "_" + Date.now();
 
@@ -15,33 +15,39 @@ describe('loadScriptPromise.setProvider and loadScriptPromise.loadProvider using
             src: "./static/testlibProviderLoad@0.0.1/testlibProviderLoad.js",
             windowKey: windowKey,
         });
-        const resource = await loadScriptPromise.loadProvider(providerId);
 
-        if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
-            throw new Error("load failed");
-        }
+        return loadScriptPromise.loadProvider(providerId).then(function(resource){
 
-        if(resource !== window[windowKey]){
-            throw new Error("load failed, return is not the same as windowKey");
-        }
+            if(!Object.prototype.hasOwnProperty.call(window, windowKey)){
+                throw new Error("load failed");
+            }
+
+            if(resource !== window[windowKey]){
+                throw new Error("load failed, return is not the same as windowKey");
+            }
+            
+            window[windowKey].setVal(defaultVal);
+    
+            if(window[windowKey].getVal() !== defaultVal){
+                throw new Error("load failed, can not set value");
+            }
+
+        }).then(function(){
+
+            var loadSrcMultiTimes = [];
+
+            for(var i = 0; i < 100; i++){
+                loadSrcMultiTimes.push(loadScriptPromise.loadProvider(providerId));
+            }
+    
+            return Promise.all(loadSrcMultiTimes);
         
-        window[windowKey].setVal(defaultVal);
+        }).then(function(){
 
-        if(window[windowKey].getVal() !== defaultVal){
-            throw new Error("load failed, can not set value");
-        }
-
-        var loadSrcMultiTimes = [];
-
-        for(let i = 0; i < 100; i++){
-            loadSrcMultiTimes.push(loadScriptPromise.loadProvider(providerId));
-        }
-
-        await Promise.all(loadSrcMultiTimes);
-
-        if(window[windowKey].getVal() !== defaultVal){
-            throw new Error("load failed, is not restricted to load only once");
-        }
+            if(window[windowKey].getVal() !== defaultVal){
+                throw new Error("load failed, is not restricted to load only once");
+            }    
+        });
 
     });
 
