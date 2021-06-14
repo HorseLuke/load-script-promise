@@ -45,7 +45,7 @@
 
 此处待细节补充。
 
-不过你可以打开文件`index.js`来观察它是如何工作的，或者参阅文档["Browser API"](./browser-api/index.md)
+不过你可以打开文件`index.js`来观察它是如何工作的，或者参阅文档["Lib API"](./lib-api/index.md)
 
 ## Browser API
 

@@ -45,7 +45,7 @@ You can open `/test/browser-test/index.html` to see how it works.
 
 Docs are in progress. 
 
-But you can open `index.js` and see how it works, or see doc ["Lib API"](./browser-api/index.md).
+But you can open `index.js` and see how it works, or see doc ["Lib API"](./lib-api/index.md).
 
 ## Browser API
 
