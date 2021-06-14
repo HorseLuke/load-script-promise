@@ -1,7 +1,8 @@
 {
-  "name": "load-script-promise",
+  "name": "@horseluke/load-script-promise",
   "description": "Enhancement version of dynamic script file loader for browser, with promise, restrict to load once and simple provider loader",
   "version": "1.0.0",
+  "author": "Horse Luke",
   "keywords": [
     "browser",
     "script",
@@ -12,7 +13,8 @@
     "url": "git@github.com:HorseLuke/load-script-promise.git"
   },
   "type": "module",
-  "module": "./index.js",
+  "module": "index.js",
+  "main": "index.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
