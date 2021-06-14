@@ -2,8 +2,8 @@
     "presets": [
       ["@babel/preset-env", {
         "targets": {
-            "safari": 10, //目标运行平台为safari10,
-            "chrome": 49,
+            "safari": 9,
+            "chrome": 40,
           },
           "modules": false,
           "useBuiltIns": false,

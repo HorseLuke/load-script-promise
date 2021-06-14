@@ -1,6 +1,6 @@
 {
   "name": "load-script-promise",
-  "description": "Dynamic script loading for browser enhancement version: with promise, restrict to load once and simple provider loader",
+  "description": "Enhancement version of dynamic script file loader for browser, with promise, restrict to load once and simple provider loader",
   "version": "1.0.0",
   "keywords": [
     "browser",
