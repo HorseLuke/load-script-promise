@@ -48,9 +48,16 @@ npm i @horseluke/load-script-promise
 
 [请阅读`doc`目录下的文档](./doc/zh-CN/TOC.md)。
 
+
 ## 测试
 
 本库使用mocha进行测试。
+
+
+## 更新日志
+
+[清查阅文档`CHANGELOG.md`。](./CHANGELOG.md).
+
 
 ## 协议
 

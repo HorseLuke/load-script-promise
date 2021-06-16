@@ -14,6 +14,7 @@ The structure and development mode of this repo is compatible with ES Module.
 
 Npm package name is `@horseluke/load-script-promise`.
 
+
 ## Installation
 
 ### In Browser standalone mode (directly require in html file)
@@ -49,9 +50,15 @@ Then go to doc ["Lib API"](./doc/en-US/lib-api/index.md) to read more.
 
 [Please read docs in `doc` folder](./doc/en-US/TOC.md).
 
+
 ## Test
 
 This repo use mocha to run test.
+
+
+## Changelog
+
+[Please read docs `CHANGELOG.md`.](./CHANGELOG.md).
 
 
 ## License
