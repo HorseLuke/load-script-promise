@@ -1,4 +1,4 @@
-var loadScriptPromise = (function () {
+var loadScriptPromise = (function (exports) {
     'use strict';
 
     /**
@@ -90,7 +90,7 @@ var loadScriptPromise = (function () {
      */
     var cfg = {
       //version
-      "ver": "0.1",
+      "ver": "1.1.0",
       //remove script tag when load error
       "scriptRemoveOnerror": true,
       //provider using windowKey detect mode retry between mil seconds
@@ -1519,16 +1519,19 @@ var loadScriptPromise = (function () {
       return _loadProvider.apply(this, arguments);
     }
 
-    var loadScript = {};
-    loadScript.load = loadPromise;
-    loadScript.loadTraditionMode = load;
-    loadScript.setProvider = set;
-    loadScript.loadProvider = loadProvider;
-    loadScript.providerListStore = providerListStore$1;
-    loadScript.dataScriptMark = dataScriptMark;
-    loadScript.findScriptDomsBySrc = findScriptDomsBySrc;
-    loadScript.config = config;
+    var setProvider = set;
 
-    return loadScript;
+    exports.config = config;
+    exports.dataScriptMark = dataScriptMark;
+    exports.findScriptDomsBySrc = findScriptDomsBySrc;
+    exports.load = loadPromise;
+    exports.loadProvider = loadProvider;
+    exports.loadTraditionMode = load;
+    exports.providerListStore = providerListStore$1;
+    exports.setProvider = setProvider;
 
-}());
+    Object.defineProperty(exports, '__esModule', { value: true });
+
+    return exports;
+
+}({}));
