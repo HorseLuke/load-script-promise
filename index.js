@@ -5,18 +5,15 @@ import loadProvider from "./lib/load-script-provider/loadProvider";
 import * as providerListStore from "./lib/load-script-provider/providerListStore";
 import config from "./lib/config/config";
 
-const loadScript = {};
+const setProvider = providerListStore.set;
 
-loadScript.load = loadScriptPromiseLoad;
-loadScript.loadTraditionMode = loadScriptTraditionMode;
-
-loadScript.setProvider = providerListStore.set;
-loadScript.loadProvider = loadProvider;
-loadScript.providerListStore = providerListStore;
-
-loadScript.dataScriptMark = dataScriptMark;
-loadScript.findScriptDomsBySrc = findScriptDomsBySrc;
-
-loadScript.config = config;
-
-export default loadScript;
+export {
+    config,
+    loadScriptPromiseLoad as load,
+    loadScriptTraditionMode as loadTraditionMode,
+    setProvider,
+    loadProvider,
+    providerListStore,
+    dataScriptMark,
+    findScriptDomsBySrc
+};
