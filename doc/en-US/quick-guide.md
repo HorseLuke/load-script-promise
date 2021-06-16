@@ -28,7 +28,7 @@ Browser compatibility is defined in file `.babelrc`, now support chrome >= 40, s
 
 ### In Browser standalone mode (directly require in html file)
 
-It is simple! Just include bundled file from `dist` folder, and then use `loadScriptPromise` Object.
+It is simple! Just include bundled file from `dist` folder (you can find this folder in repo), and then use `loadScriptPromise` Object.
 
 `loadScriptPromise` Object is attached to `window` object in browser.
 
@@ -43,9 +43,13 @@ You can open `/test/browser-test/index.html` to see how it works.
 
 ### App development integration
 
-Docs are in progress. 
+First, use npm to install package.
 
-But you can open `index.js` and see how it works, or see doc ["Lib API"](./lib-api/index.md).
+```
+npm i @horseluke/load-script-promise
+```
+
+Then go to doc ["Lib API"](./lib-api/index.md) to read more.
 
 ## Browser API
 
@@ -55,7 +59,7 @@ Please see doc ["Browser API"](./browser-api/index.md)
 
 ## Lib API
 
-Please see doc ["Lib API"](./browser-api/index.md)
+Please see doc ["Lib API"](./lib-api/index.md)
 
 
 ## Test

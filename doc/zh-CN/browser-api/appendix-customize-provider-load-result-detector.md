@@ -1,4 +1,4 @@
-# About customize provider load result detector
+# 关于自定义供应商载入结果检测器
 
 ## Introduction
 

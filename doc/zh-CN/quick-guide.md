@@ -28,7 +28,7 @@
 
 ### 在浏览器独立使用模式（在html文件中直接引入）
 
-非常简单！引入`dist`目录下的打包文件，然后使用`loadScriptPromise`Object对象。
+非常简单！引入`dist`目录下的打包文件（repo中可以找到该目录），然后使用`loadScriptPromise`Object对象。
 
 `loadScriptPromise`Object对象挂载在浏览器的`window`对象下.
 
@@ -43,9 +43,13 @@
 
 ### 应用开发整合模式
 
-此处待细节补充。
+首先，使用npm命令安装本包。
 
-不过你可以打开文件`index.js`来观察它是如何工作的，或者参阅文档["Lib API"](./lib-api/index.md)
+```
+npm i @horseluke/load-script-promise
+```
+
+然后打开文档["Lib API"](./lib-api/index.md)查阅更多细节。
 
 ## Browser API
 
@@ -55,7 +59,7 @@
 
 ## Lib API
 
-请参阅文档["Lib API"](./browser-api/index.md)。
+请参阅文档["Lib API"](./lib-api/index.md)。
 
 ## 测试
 

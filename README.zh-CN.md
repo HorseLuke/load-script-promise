@@ -16,8 +16,9 @@ Npm包名称为`@horseluke/load-script-promise`。
 
 ## 安装
 
+### 在浏览器独立使用模式（在html文件中直接引入）
 
-在浏览器独立使用模式（在html文件中直接引入）中，引入`dist`目录下的打包文件，然后使用`loadScriptPromise`Object对象。
+非常简单！引入`dist`目录下的打包文件（repo中可以找到该目录），然后使用`loadScriptPromise`Object对象。
 
 `loadScriptPromise`Object对象挂载在浏览器的`window`对象下.
 
@@ -29,7 +30,19 @@ Npm包名称为`@horseluke/load-script-promise`。
 
 你可以打开`/test/browser-test/index.html`来观察它式如何工作的。
 
-[其它细节，请阅读`doc`目录下的文档](./doc/zh-CN/TOC.md)。
+打开文档["Lib API"](./doc/zh-CN/browser-api/index.md)可查阅更多细节。
+
+
+### 应用开发整合模式
+
+首先，使用npm命令安装本包。
+
+```
+npm i @horseluke/load-script-promise
+```
+
+然后打开文档["Lib API"](./doc/zh-CN/lib-api/index.md)查阅更多细节。
+
 
 ### API
 

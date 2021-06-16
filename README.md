@@ -16,20 +16,34 @@ Npm package name is `@horseluke/load-script-promise`.
 
 ## Installation
 
-In Browser standalone mode (directly require in html file), just include bundled file from `dist` folder, and then use `loadScriptPromise` Object.
+### In Browser standalone mode (directly require in html file)
+
+It is simple! Just include bundled file from `dist` folder (you can find this folder in repo), and then use `loadScriptPromise` Object.
 
 `loadScriptPromise` Object is attached to `window` object in browser.
 
 ```
 <!-- loadScriptPromise.js is for development -->
-<script src="./dist/loadScriptPromise.min.js"></script>
+<script src="/dist/loadScriptPromise.min.js"></script>
 ```
 
 More usages and examples can be found in folder `/test/browser-test/cases`.
 
 You can open `/test/browser-test/index.html` to see how it works.
 
-[Other details, please read docs in `doc` folder](./doc/en-US/TOC.md).
+Doc ["Browser API"](./doc/en-US/browser-api/index.md) has more details.
+
+
+### App development integration
+
+First, use npm to install package.
+
+```
+npm i @horseluke/load-script-promise
+```
+
+Then go to doc ["Lib API"](./doc/en-US/lib-api/index.md) to read more.
+
 
 ## API
 

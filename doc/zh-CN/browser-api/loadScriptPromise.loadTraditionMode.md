@@ -18,7 +18,7 @@ loadScriptPromise.loadTraditionMode(url[, opts[, cb]]);
 Any script url that you would like to load.  May be absolute or relative.
 
 ### [, opts]
-If it is a callback function, it is the same as argument `[, cb]`, see argument `[, cb]` description
+If it is a callback function, it is the same as argument `[, cb]`, see argument `[, cb]` description.
 
 If it is an object, it is a map of options.  Here are the currently supported options:
 
