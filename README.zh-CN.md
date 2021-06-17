@@ -30,7 +30,7 @@ Npm包名称为`@horseluke/load-script-promise`。
 
 你可以打开`/test/browser-test/index.html`来观察它式如何工作的。
 
-打开文档["Lib API"](./doc/zh-CN/browser-api/index.md)可查阅更多细节。
+打开文档["Browser API"](./doc/zh-CN/browser-api/index.md)可查阅更多细节。
 
 
 ### 应用开发整合模式
